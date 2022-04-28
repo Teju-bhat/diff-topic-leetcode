@@ -85,4 +85,48 @@ class Solve {
     }}
       
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   3)
+   3)Remove Duplicates 
+   https://practice.geeksforgeeks.org/problems/remove-duplicates3034/1/?page=1&difficulty[]=0&category[]=Strings&curated[]=1&sortBy=submissions
+   
+   Given a string without spaces, the task is to remove duplicates from it.
+
+Note: The original order of characters must be kept the same. 
+________________________________________________________________________
+Example 1:
+
+Input: S = "zvvo"
+Output: "zvo"
+Explanation: Only keep the first
+occurrence
+Example 2:
+
+Input: S = "gfg"
+Output: gf
+Explanation: Only keep the first
+occurrence
+_____________________________________________________________________________
+class Solution {
+    String removeDups(String S) {
+        // code here
+        char [] a=S.toCharArray();
+        HashSet<Character> se=new HashSet<>();
+          String strss = "";
+        int i=0;
+       while(i<a.length){
+            if(se.contains(a[i]))
+            {
+                 i++;
+            }
+            else{
+                if(se.add(a[i])){
+            strss =strss+a[i];
+            i++;
+        }
+            }
+        
+        }
+        return strss;
+    }
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4)
