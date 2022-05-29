@@ -28,4 +28,41 @@ Explanation: There is no common prefix among the input strings.
     
 }
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PIVOT INDEX
+https://leetcode.com/explore/learn/card/array-and-string/201/introduction-to-array/1144/
+
+Input: nums = [1,7,3,6,5,6]
+Output: 3
+Explanation:
+The pivot index is 3.
+Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
+Right sum = nums[4] + nums[5] = 5 + 6 = 11
+
+Input: nums = [1,2,3]
+Output: -1
+
+Input: nums = [2,1,-1]
+Output: 0
+__________________________________________________________________________________
+Example 2:class Solution {
+    public int pivotIndex(int[] nums) {
+        int total=0;
+        int left_sum=0;
+        for(int i=0;i<nums.length;i++){
+            total=total+nums[i];
+        }
+        for(int i=0;i<nums.length;i++){
+               if(i!=0){
+                   left_sum=left_sum+nums[i-1];
+                 }
+               if(total-left_sum-nums[i]==left_sum)
+            {
+                  return i;
+                
+            }
+            
+        }
+        return -1;
+    }
+}
 
