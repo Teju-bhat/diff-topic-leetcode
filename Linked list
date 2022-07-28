@@ -1,3 +1,114 @@
+BAsic IMPlementations
+  class Node{
+    int data;
+    Node next;
+}
+class linked{
+    Node head;
+    public void insert(int data){
+        Node node=new Node();
+        node.data=data;
+        node.next=null;
+        if(head==null)
+        {
+            head=node;
+        }
+        else{
+            Node n=head;
+            while(n.next!=null)
+            {
+                n=n.next;
+            }
+            n.next=node;
+
+        }
+    }
+    public void insertStartAt(int data) {
+
+        Node node = new Node();
+        node.data = data;
+        node.next = head;
+        head = node;
+    }
+    public void insertAt(int position,int data){
+              Node node=new Node();
+              node.data=data;
+              node.next=null;
+              Node n=head;
+              for(int i=0;i<position-1;i++){
+                 n=n.next;
+              }
+              node.next=n.next;
+              n.next=node;
+
+    }
+    public void deleteend(){
+        Node n=head;
+        Node temp=null;
+        while(n.next!=null){
+            temp=n;
+            n=n.next;
+        }
+        temp.next=null;
+        System.out.println("deleted node"+n.data);
+    }
+    public void deletefront(){
+        Node n=head;
+         head=n.next;
+         n.next=null;
+         System.out.println("deleted node"+n.data);
+
+    }
+    public void deleteAt(int position){
+        Node n=head;
+        Node prev=null;
+        Node temp=n.next;
+        for(int i=0;i<position;i++){
+            prev=n;
+            n=n.next;
+            temp=temp.next;
+
+        }
+        System.out.println("deleted node:"+n.data);
+        prev.next=temp;
+
+
+    }
+
+    public void show()
+    {
+         Node node=head;
+        while(node.next!=null)
+        {
+            System.out.print(node.data+" ");
+             node = node.next;
+        }
+        System.out.print(node.data);
+    }
+
+}
+public class linkedlist {
+    public static void main(String args[]) {
+        linked list = new linked();
+        list.insert(0);
+        list.insert(1);
+        list.insert(3);
+        list.insert(4);
+        list.insert(5);
+      list.insertAt(0,9);
+      list.insertStartAt(0);
+        list.deleteend();
+        list.deletefront();
+         list.deleteAt(2);
+        list.show();
+
+    }
+}
+_________________________________________________________________________________
+
+
+
+
 206. Reverse Linked List
 https://leetcode.com/problems/reverse-linked-list/
 _____________________________________________________________
@@ -145,5 +256,3 @@ class Solution {
     }
 }
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
