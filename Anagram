@@ -1,0 +1,31 @@
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+1)-->Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+Input: s = "anagram", t = "nagaram"
+Output: true
+Example 2:
+
+Input: s = "rat", t = "car"
+Output: false
+-----------------------------------
+class Solution {
+    public boolean isAnagram(String s, String t) {
+    char []si=s.toCharArray();
+          char  []ti=t.toCharArray(); 
+        int [] ans=new int[26];
+        if(si.length!=ti.length) return false;
+                        
+        for(int i=0;i<si.length;i++){
+              ans[si[i]-'a']++;
+            ans[ti[i]-'a']--;
+        }
+        for(int i=0;i<ans.length;i++){
+
+              if(ans[i]!=0) return false;
+        }
+        return true;
+        
+    }
+}
++++++++++++++++++++++++++++++++++++++++++++++++==
+
